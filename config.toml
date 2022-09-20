@@ -88,8 +88,8 @@ home = ["HTML", "RSS", "Algolia"]
   #git           = "full profile url for git user"
   
   [[params.friend_link]]
-  title = "felix's blog"
-  href =  "https://zhaozhihan.com"
+  title = "leafee98's blog"
+  href =  "https://blog.leafee98.com"
 
   [[params.bookmark_link]]
   title =  "Martin Fowler"
