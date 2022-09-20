@@ -13,7 +13,7 @@ hasCJKLanguage = true
 home = ["HTML", "RSS", "Algolia"]
 
 [params]
-  header_image = "img/home-bg-jeep.jpg"
+  header_image = "img/home-bg-scenery.JPG"
   SEOTitle = "felix的博客 | felix Blog"
   description = "felix，程序员, 台球爱好者 | 这里是 felix 的博客，与你一起发现更大的世界。"
   keyword = "felix, felix, Felix, , felix的网络日志, felix的博客, Felix Blog, 博客, 个人网站, 互联网, Web, 云原生, PaaS, Istio, Kubernetes, 微服务, Microservice"
