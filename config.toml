@@ -37,7 +37,7 @@ home = ["HTML", "RSS", "Algolia"]
   # Sidebar settings
   sidebar_about_description = "Software Developer, Billiards lover"
   #sidebar_avatar = "img/avatar-zhaohuabing.jpg"      # use absolute URL, seeing it's used in both `/` and `/about/`
-  sidebar_avatar = "img/zhaohuabing.png"      # use absolute URL, seeing it's used in both `/` and `/about/`
+  sidebar_avatar = "img/avatar-felix3.JPG"      # use absolute URL, seeing it's used in both `/` and `/about/`
 
   featured_tags = true 
   featured_condition_size = 1 
@@ -110,6 +110,9 @@ home = ["HTML", "RSS", "Algolia"]
   [[params.addtional_menus]]
   title =  "NOTES"
   href =  "/notes/"
+  [[params.addtional_menus]]
+  title =  "PHOTOS"
+  href =  "/photos/"
   [[params.addtional_menus]]
   title =  "ABOUT"
   href =  "/about/"
