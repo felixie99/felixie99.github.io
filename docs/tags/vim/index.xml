@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim on felix&#39;s blog</title>
+    <link>https://felixie99.github.io/tags/vim/</link>
+    <description>Recent content in vim on felix&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://felixie99.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vim grammar</title>
+      <link>https://felixie99.github.io/post/vim_grammar/</link>
+      <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://felixie99.github.io/post/vim_grammar/</guid>
+      <description>Vim语法 使用vim就像在“动词修饰对象”句子中与编辑交谈，变成了首字母缩略词 一些基本概念 学习一些动词： v 选择文本 c 更改/剪切文本，并开始进</description>
+    </item>
+    
+  </channel>
+</rss>

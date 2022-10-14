@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="Record beautiful moments" />
-    <meta property="og:title" content="Record beautiful moments" />
-    <meta property="twitter:title" content="Record beautiful moments" />
+    <meta name="title" content="vim grammar" />
+    <meta property="og:title" content="vim grammar" />
+    <meta property="twitter:title" content="vim grammar" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="felix, felix, Felix, , felix的网络日志, felix的博客, Felix Blog, 博客, 个人网站, 互联网, Web, 云原生, PaaS, Istio, Kubernetes, 微服务, Microservice">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Record beautiful moments | felix的博客 | felix Blog</title>
+    <title>vim grammar | felix的博客 | felix Blog</title>
 
-    <link rel="canonical" href="/photos/">
+    <link rel="canonical" href="/post/vim_grammar/">
 
     
 
@@ -169,8 +169,12 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                        <a class="tag" href="/tags/vim" title="vim">
+                            vim
+                        </a>
+                        
                     </div>
-                    <h1>Record beautiful moments</h1>
+                    <h1>vim grammar</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
@@ -179,7 +183,7 @@
                                      &#34;&#34;
                              
                             on 
-                            Monday, June 4, 2018
+                            Friday, October 14, 2022
                             
                             
                             
@@ -205,7 +209,118 @@
                 post-container">
 
                 
-                
+                <h1 id="vim语法">Vim语法</h1>
+<p>使用vim就像在“动词修饰对象”句子中与编辑交谈，变成了首字母缩略词</p>
+<h2 id="一些基本概念">一些基本概念</h2>
+<ul>
+<li>
+<p>学习一些动词：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>v 选择文本
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>c 更改/剪切文本，并开始进入insert模式
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d 剪切文本
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>y 拉/复制文本
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>p 粘贴文本
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>这些是最重要的。还有其他的  
+</span></span></code></pre></div></li>
+<li>
+<p>学习一些名词：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>h:光标左移一个字符
+</span></span><span style="display:flex;"><span>l:光标右移一个字符
+</span></span><span style="display:flex;"><span>Backspace:光标左移一个字符
+</span></span><span style="display:flex;"><span>K :光标上移一个字符
+</span></span><span style="display:flex;"><span>J:光标下移一个字符
+</span></span><span style="display:flex;"><span>Enter:光标下移一行
+</span></span><span style="display:flex;"><span>W或w :光标右移一个字到字首
+</span></span><span style="display:flex;"><span>B 或b :光标左移一个字到字首
+</span></span><span style="display:flex;"><span>E 或E : 光标右移一个字到字尾
+</span></span><span style="display:flex;"><span>nG :光标移到第n行首部
+</span></span><span style="display:flex;"><span>n+ :n光标下移n行
+</span></span><span style="display:flex;"><span>n- : 光标上移n行
+</span></span><span style="display:flex;"><span>n$ : 相对于当前光标所在的行，光标在相后移动n行到行尾
+</span></span><span style="display:flex;"><span>H : 光标移到当前屏幕的顶行
+</span></span><span style="display:flex;"><span>M : 光标移动当前屏幕的中间
+</span></span><span style="display:flex;"><span>L : 光标移到当前屏幕的最底行
+</span></span><span style="display:flex;"><span>0 :光标移到当前行行首
+</span></span><span style="display:flex;"><span>$ : 将光标移到当前行行尾
+</span></span><span style="display:flex;"><span>:$ 将光标移到文件最后一行的行首
+</span></span><span style="display:flex;"><span>}    光标跳到下一段
+</span></span></code></pre></div></li>
+<li>
+<p>学习一些修饰符:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>i 内部
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>a 周围 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>t 直到..找到一个字符 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>f find..like直到包括字符 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>/ search..find一个字符串/正则表达式
+</span></span></code></pre></div></li>
+<li>
+<p>学习一些文本对象：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>w word 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s 句子
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>p 段落 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>b 块/括号 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>t 标签，适用于html/xml 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>还有其他
+</span></span></code></pre></div></li>
+</ul>
+<p>为了在vim中高效移动，不要试图通过多次按键来做任何事情，而是用句子与编辑交谈</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>删除当前单词：dew（删除单词内部）
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>更改当前句子：cis（更改句子内部）
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>更改字符串内部引号：ci”（更改内部引号）
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>更改直到下次出现“foo”：c/foo（更改搜索foo）
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>把这里的一切更改为字母X：ctX
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>直观地选择此段落：vap（视频段落周围）
+</span></span></code></pre></div><p>如果您理解您正在处理的动词和对象，您很快就会意识到，添加新插件和学习新动词或名词会成倍提高您的生产力，因为您现在可以将其应用于您已经知道的所有句子中。这就像学习一门语言一样。</p>
+<h2 id="一些常用指令--动词--名词--修饰">一些常用指令&ndash;动词 + 名词 + (修饰)</h2>
+<p>搜索及其替换类命令及其说明：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/abc 在文件中向前查找字符串abc
+</span></span><span style="display:flex;"><span>?abc:在文件中向后查找字符串abc
+</span></span><span style="display:flex;"><span>n:在同一方向重复上次的搜索命令
+</span></span><span style="display:flex;"><span>N:在相反方向上重复上次的搜索命令
+</span></span><span style="display:flex;"><span>:s/a1/a2/g : 将当前光标所在的行中的所有a1均用a2替换
+</span></span><span style="display:flex;"><span>:n1,n2s/a1/a2/g :将文件的n1行到n2行中的所有a1用a2替换
+</span></span><span style="display:flex;"><span>:g/a1/a2/g :将文件中的所有a1均用a2来替换
+</span></span><span style="display:flex;"><span>:set nu:给文件每行加上行号
+</span></span></code></pre></div><p>撤销与回复撤销</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>u:  撤销操作
+</span></span><span style="display:flex;"><span>Ctrl + r : 恢复撤销的操作
+</span></span></code></pre></div><p>插入与删除文本类命令及其说明</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ESC：返回命令行模式
+</span></span><span style="display:flex;"><span>i：在光标前输入汉字
+</span></span><span style="display:flex;"><span>a:在光标后输入汉字
+</span></span><span style="display:flex;"><span>o:在当前行之下新开一行
+</span></span><span style="display:flex;"><span>O:在当前行之上新开一行
+</span></span><span style="display:flex;"><span>r:替换光标所在字符，输入r命令之后，在键盘上输入需要替换的新字符即可完成替换
+</span></span><span style="display:flex;"><span>x:删除光标所在的字符
+</span></span><span style="display:flex;"><span>dd:删除光标所在的行。删除后的内容自动保存在剪贴板
+</span></span><span style="display:flex;"><span>yy:将光标所在的行复制到剪贴板，如果yy前加上数字，可复制多行
+</span></span><span style="display:flex;"><span>p:将剪贴板得到内容复制到光标后
+</span></span><span style="display:flex;"><span>P:将剪贴板的内容复制到光标前
+</span></span><span style="display:flex;"><span>yw;将光标所在的单词复制到剪贴板
+</span></span></code></pre></div><h3 id="引用文章">引用文章</h3>
+<p><a href="https://blog.csdn.net/StardustYu/article/details/100934362">Vim常见命令语法</a></p>
+<p><a href="https://learnvim.irian.to/basics/vim_grammar">Vim语法</a></p>
+<p><a href="https://yanpritzker.com/learn-to-speak-vim-verbs-nouns-and-modifiers-d7bfed1f6b2d">学习说vim——动词、名词和修饰语！</a></p>
+
 
                 
 
@@ -214,10 +329,15 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/archive/" data-toggle="tooltip" data-placement="top" title="Posts Archive">&larr;
+                        <a href="/post/article-name/" data-toggle="tooltip" data-placement="top" title="My first blog">&larr;
                             Previous Post</a>
                     </li>
                     
+                    
+                    <li class="next">
+                        <a href="/post/cpp_compare/" data-toggle="tooltip" data-placement="top" title="cpp_compare">Next
+                            Post &rarr;</a>
+                    </li>
                     
                 </ul>
                 
