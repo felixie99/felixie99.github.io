@@ -40,7 +40,7 @@ home = ["HTML", "RSS", "Algolia"]
   sidebar_avatar = "img/avatar-felix3.JPG"      # use absolute URL, seeing it's used in both `/` and `/about/`
 
   featured_tags = true 
-  featured_condition_size = 1 
+  featured_condition_size = 0
 
   # Baidu Analytics
   ba_track_id = ""
@@ -90,32 +90,20 @@ home = ["HTML", "RSS", "Algolia"]
   [[params.friend_link]]
   title = "leafee98's blog"
   href =  "https://blog.leafee98.com"
-
-  [[params.bookmark_link]]
-  title =  "Martin Fowler"
-  href =  "https://martinfowler.com"
-  [[params.bookmark_link]]
-  title = "ServiceMesher"
-  href =  "http://www.servicemesher.com"
-  [[params.bookmark_link]]
-  title =  "Pxhere"
-  href = "https://pxhere.com"
-  [[params.bookmark_link]]
-  title = "unsplash"
-  href = "https://unsplash.com"
   
   [[params.addtional_menus]]
   title =  "ARCHIVE"
   href =  "/archive/"
   [[params.addtional_menus]]
   title =  "NOTES"
-  href =  "/notes/"
+  href =  "/tags/"
   [[params.addtional_menus]]
   title =  "PHOTOS"
   href =  "/photos/"
   [[params.addtional_menus]]
   title =  "ABOUT"
   href =  "/about/"
+
 
 [outputFormats.Algolia]
 baseName = "algolia"
