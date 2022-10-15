@@ -124,3 +124,8 @@ class Solution{
     priority_queue<Edge, vector<Edge>, cmp> pq;
 ```
 
+### 注意事项 
+
+> 注意：
+> greater表示从大到小排序，less表示从小到大排序
+> 但是priority_queue中是相反的
