@@ -129,3 +129,81 @@ class Solution{
 > 注意：
 > greater表示从大到小排序，less表示从小到大排序
 > 但是priority_queue中是相反的
+
+### 做实验
+对比set，vector，priority_queue的排序方式
+```c++
+class State{
+    public:
+        int id;
+        double prob_from_start;
+        State() : State(0,0.0){};
+
+        State(int id,double prob_from_start){
+            this->id = id;
+            this->prob_from_start = prob_from_start;
+        }
+
+        //参数外面的const修饰整个函数 ： this-> 值 不能修改
+        bool operator<(State const& a) const{
+            //参数里面的const 修饰State：State值不能修改
+            return this->prob_from_start > a.prob_from_start;
+        }
+    };
+
+
+int main()
+{
+    set<Node> s;
+    s.insert({1,1});
+    s.insert({1,2});
+    s.insert({2,1});
+    s.insert({2,2});
+
+    for(auto it = s.begin(); it != s.end(); it++){
+        cout << it->cnt << " "<< it->time << " "<<  endl;
+    }
+
+    cout << "set------------------" << endl;
+    set<State> ms;
+    ms.insert({1,0.2});
+    ms.insert({2,1.2});
+    ms.insert({3,3.2});
+    ms.insert({4,0.3});
+    ms.insert({5,6.2});
+    ms.insert({6,2.2});
+
+    for(auto it = ms.begin(); it != ms.end(); it++){
+        cout << it->id << " "<< it->prob_from_start << " "<<  endl;
+    }
+    cout << "priority_queue----------------" << endl;
+    priority_queue<State> pq;
+    pq.push({1,0.2});
+    pq.push({2,1.2});
+    pq.push({3,3.2});
+    pq.push({4,0.3});
+    pq.push({5,6.2});
+    pq.push({6,2.2});
+
+    while(!pq.empty()){
+        auto cur = pq.top();
+        pq.pop();
+        cout << cur.id << " " << cur.prob_from_start << " " << endl;
+    }
+    cout << "vector----------------" << endl;
+    vector<State> vs;
+    vs.push_back({1,0.2});
+    vs.push_back({2,1.2});
+    vs.push_back({3,3.2});
+    vs.push_back({4,0.3});
+    vs.push_back({5,6.2});
+    vs.push_back({6,2.2}); 
+    sort(vs.begin(),vs.end());
+    for(auto it = vs.begin(); it != vs.end(); it++){
+        cout << it->id << " "<< it->prob_from_start << " "<<  endl;
+    }
+
+}
+```
+
+实验结果图:![对比图](/img/cpp_compare.png)

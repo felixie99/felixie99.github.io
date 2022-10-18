@@ -307,6 +307,83 @@
 greater表示从大到小排序，less表示从小到大排序
 但是priority_queue中是相反的</p>
 </blockquote>
+<h3 id="做实验">做实验</h3>
+<p>对比set，vector，priority_queue的排序方式</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">State</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span><span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span> id;
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">double</span> prob_from_start;
+</span></span><span style="display:flex;"><span>        State() <span style="color:#ff79c6">:</span> State(<span style="color:#bd93f9">0</span>,<span style="color:#bd93f9">0.0</span>){};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        State(<span style="color:#8be9fd">int</span> id,<span style="color:#8be9fd">double</span> prob_from_start){
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">this</span><span style="color:#ff79c6">-&gt;</span>id <span style="color:#ff79c6">=</span> id;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">this</span><span style="color:#ff79c6">-&gt;</span>prob_from_start <span style="color:#ff79c6">=</span> prob_from_start;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//参数外面的const修饰整个函数 ： this-&gt; 值 不能修改
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#8be9fd">bool</span> <span style="color:#ff79c6">operator</span><span style="color:#ff79c6">&lt;</span>(State <span style="color:#ff79c6">const</span><span style="color:#ff79c6">&amp;</span> a) <span style="color:#ff79c6">const</span>{
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">//参数里面的const 修饰State：State值不能修改
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">-&gt;</span>prob_from_start <span style="color:#ff79c6">&gt;</span> a.prob_from_start;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    set<span style="color:#ff79c6">&lt;</span>Node<span style="color:#ff79c6">&gt;</span> s;
+</span></span><span style="display:flex;"><span>    s.insert({<span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">1</span>});
+</span></span><span style="display:flex;"><span>    s.insert({<span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">2</span>});
+</span></span><span style="display:flex;"><span>    s.insert({<span style="color:#bd93f9">2</span>,<span style="color:#bd93f9">1</span>});
+</span></span><span style="display:flex;"><span>    s.insert({<span style="color:#bd93f9">2</span>,<span style="color:#bd93f9">2</span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span>(<span style="color:#ff79c6">auto</span> it <span style="color:#ff79c6">=</span> s.begin(); it <span style="color:#ff79c6">!=</span> s.end(); it<span style="color:#ff79c6">++</span>){
+</span></span><span style="display:flex;"><span>        cout <span style="color:#ff79c6">&lt;&lt;</span> it<span style="color:#ff79c6">-&gt;</span>cnt <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span><span style="color:#ff79c6">&lt;&lt;</span> it<span style="color:#ff79c6">-&gt;</span>time <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span><span style="color:#ff79c6">&lt;&lt;</span>  endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;set------------------&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    set<span style="color:#ff79c6">&lt;</span>State<span style="color:#ff79c6">&gt;</span> ms;
+</span></span><span style="display:flex;"><span>    ms.insert({<span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">0.2</span>});
+</span></span><span style="display:flex;"><span>    ms.insert({<span style="color:#bd93f9">2</span>,<span style="color:#bd93f9">1.2</span>});
+</span></span><span style="display:flex;"><span>    ms.insert({<span style="color:#bd93f9">3</span>,<span style="color:#bd93f9">3.2</span>});
+</span></span><span style="display:flex;"><span>    ms.insert({<span style="color:#bd93f9">4</span>,<span style="color:#bd93f9">0.3</span>});
+</span></span><span style="display:flex;"><span>    ms.insert({<span style="color:#bd93f9">5</span>,<span style="color:#bd93f9">6.2</span>});
+</span></span><span style="display:flex;"><span>    ms.insert({<span style="color:#bd93f9">6</span>,<span style="color:#bd93f9">2.2</span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span>(<span style="color:#ff79c6">auto</span> it <span style="color:#ff79c6">=</span> ms.begin(); it <span style="color:#ff79c6">!=</span> ms.end(); it<span style="color:#ff79c6">++</span>){
+</span></span><span style="display:flex;"><span>        cout <span style="color:#ff79c6">&lt;&lt;</span> it<span style="color:#ff79c6">-&gt;</span>id <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span><span style="color:#ff79c6">&lt;&lt;</span> it<span style="color:#ff79c6">-&gt;</span>prob_from_start <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span><span style="color:#ff79c6">&lt;&lt;</span>  endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;priority_queue----------------&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    priority_queue<span style="color:#ff79c6">&lt;</span>State<span style="color:#ff79c6">&gt;</span> pq;
+</span></span><span style="display:flex;"><span>    pq.push({<span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">0.2</span>});
+</span></span><span style="display:flex;"><span>    pq.push({<span style="color:#bd93f9">2</span>,<span style="color:#bd93f9">1.2</span>});
+</span></span><span style="display:flex;"><span>    pq.push({<span style="color:#bd93f9">3</span>,<span style="color:#bd93f9">3.2</span>});
+</span></span><span style="display:flex;"><span>    pq.push({<span style="color:#bd93f9">4</span>,<span style="color:#bd93f9">0.3</span>});
+</span></span><span style="display:flex;"><span>    pq.push({<span style="color:#bd93f9">5</span>,<span style="color:#bd93f9">6.2</span>});
+</span></span><span style="display:flex;"><span>    pq.push({<span style="color:#bd93f9">6</span>,<span style="color:#bd93f9">2.2</span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">while</span>(<span style="color:#ff79c6">!</span>pq.empty()){
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">auto</span> cur <span style="color:#ff79c6">=</span> pq.top();
+</span></span><span style="display:flex;"><span>        pq.pop();
+</span></span><span style="display:flex;"><span>        cout <span style="color:#ff79c6">&lt;&lt;</span> cur.id <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> cur.prob_from_start <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34;vector----------------&#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff79c6">&lt;</span>State<span style="color:#ff79c6">&gt;</span> vs;
+</span></span><span style="display:flex;"><span>    vs.push_back({<span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">0.2</span>});
+</span></span><span style="display:flex;"><span>    vs.push_back({<span style="color:#bd93f9">2</span>,<span style="color:#bd93f9">1.2</span>});
+</span></span><span style="display:flex;"><span>    vs.push_back({<span style="color:#bd93f9">3</span>,<span style="color:#bd93f9">3.2</span>});
+</span></span><span style="display:flex;"><span>    vs.push_back({<span style="color:#bd93f9">4</span>,<span style="color:#bd93f9">0.3</span>});
+</span></span><span style="display:flex;"><span>    vs.push_back({<span style="color:#bd93f9">5</span>,<span style="color:#bd93f9">6.2</span>});
+</span></span><span style="display:flex;"><span>    vs.push_back({<span style="color:#bd93f9">6</span>,<span style="color:#bd93f9">2.2</span>}); 
+</span></span><span style="display:flex;"><span>    sort(vs.begin(),vs.end());
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span>(<span style="color:#ff79c6">auto</span> it <span style="color:#ff79c6">=</span> vs.begin(); it <span style="color:#ff79c6">!=</span> vs.end(); it<span style="color:#ff79c6">++</span>){
+</span></span><span style="display:flex;"><span>        cout <span style="color:#ff79c6">&lt;&lt;</span> it<span style="color:#ff79c6">-&gt;</span>id <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span><span style="color:#ff79c6">&lt;&lt;</span> it<span style="color:#ff79c6">-&gt;</span>prob_from_start <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span><span style="color:#ff79c6">&lt;&lt;</span>  endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>实验结果图:
+  <img src="/img/cpp_compare.png" alt="对比图">
+
+</p>
 
 
                 
