@@ -22,7 +22,7 @@
       <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://felixie99.github.io/post/cpp_compare/</guid>
-      <description>自定义cmp函数 c++ 默认使用operator&amp;lt;()来进行排序 class Student{ int score; bool operator&amp;lt;()(int const&amp;amp; stu) const{ return this-&amp;gt;score &amp;lt; stu.score; } } /*或者是*/ //修正 这么写不太必要 // struct cmp{ // bool</description>
+      <description>自定义排序 c++中默认升序排序,其中priority_queue由于只能从队尾取元素,所以感觉是降序 c++ 默认使用operator&amp;lt;()来</description>
     </item>
     
     <item>

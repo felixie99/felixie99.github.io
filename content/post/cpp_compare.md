@@ -9,9 +9,14 @@ tags:        ["cpp_note"]
 categories:  ["" ]
 ---
 
-# 自定义cmp函数
+# 自定义排序
+
+c++中默认升序排序,其中priority_queue由于只能从队尾取元素,所以感觉是降序
 
 ### c++ 默认使用operator<()来进行排序  
+
+注意重载operator<(),是重载包含operator<()的class的排序  
+比如下例,就是重载Student的排序
 
 ```c++
     class Student{
@@ -80,7 +85,7 @@ class Solution{
     };
 
     //注意这里比较函数我们放在class内 需要static  如果放在class外 就不需要static
-    static bool operator(State const& a, State const& b) {
+    static bool my_cmp(State const& a, State const& b) {
         //参数里面的const 修饰State：State值不能修改
         return a.prob_from_start > b.prob_from_start;
     }
@@ -123,12 +128,20 @@ class Solution{
     // 核心数据结构，存储「横切边」的优先级队列
     priority_queue<Edge, vector<Edge>, cmp> pq;
 ```
-
 ### 注意事项 
 
 > 注意：
 > greater表示从大到小排序，less表示从小到大排序
 > 但是priority_queue中是相反的
+
+### 4.lambda自定义排序
+
+```c++
+vector<int> a({4, 8, 1, 5, 3, -1});
+sort(a.begin(), a.end(), [](int a, int b){return a < b;});
+for (int n: a) {cout << n;};
+```
+
 
 ### 做实验
 对比set，vector，priority_queue的排序方式
