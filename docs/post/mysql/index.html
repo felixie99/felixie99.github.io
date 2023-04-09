@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="vim" />
-    <meta property="og:title" content="vim" />
-    <meta property="twitter:title" content="vim" />
+    <meta name="title" content="MySQL数据库常见问题" />
+    <meta property="og:title" content="MySQL数据库常见问题" />
+    <meta property="twitter:title" content="MySQL数据库常见问题" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="felix, felix, Felix, , felix的网络日志, felix的博客, Felix Blog, 博客, 个人网站, 互联网, Web, 云原生, PaaS, Istio, Kubernetes, 微服务, Microservice">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>vim | felix的博客 | felix Blog</title>
+    <title>MySQL数据库常见问题 | felix的博客 | felix Blog</title>
 
-    <link rel="canonical" href="/tags/vim/">
+    <link rel="canonical" href="/post/mysql/">
 
     
 
@@ -154,14 +154,41 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/home-bg-scenery.JPG')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bg-scenery.JPG')
+    }
+</style>
+
+<header class="intro-header" >
+
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>felix&#39;s blog </h1>
-                    
-		    <span class="subheading">过去无法挽回，未来可以改变</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/mysql" title="mysql">
+                            mysql
+                        </a>
+                        
+                    </div>
+                    <h1>MySQL数据库常见问题</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                     &#34;&#34;
+                             
+                            on 
+                            Sunday, April 9, 2023
+                            
+                            
+                            
+                            
+                    </span>
                 </div>
             </div>
         </div>
@@ -170,196 +197,124 @@
 
 
 
-  
-<div class="container">
-    <div class="row">
-        
-        
-   	    <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            post-container
-        ">
-            
 
-<div class="post-preview">
-    <a href="https://felixie99.github.io/post/vim_grammar/">
-        <h2 class="post-title">
-            vim grammar
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            Vim语法 使用vim就像在“动词修饰对象”句子中与编辑交谈，变成了首字母缩略词 一些基本概念 学习一些动词： v 选择文本 c 更改/剪切文本，并开始进
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by      &#34;&#34; on Friday, October 14, 2022
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
+<article>
+    <div class="container">
+        <div class="row">
 
             
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h3 id="19数据库为什么要进行分库和分表呢都放在一个库或者一张表中不可以吗">19.数据库为什么要进行分库和分表呢？都放在一个库或者一张表中不可以吗？</h3>
+<p>数据库进行分库和分表的主要目的是为了解决数据库规模扩大和高并发访问的问题，从而提高系统的可扩展性和性能。</p>
+<p>当数据量逐渐增大时，单个数据库可能会面临容量限制和性能瓶颈的问题，此时需要对数据库进行分库或分表，将数据分散到多个数据库或表中进行存储和访问。这样可以提高系统的吞吐量、降低单点故障风险、分担数据库负载等。</p>
+<p>具体来说，分库和分表的优点包括：</p>
+<p>1.可扩展性：通过分散数据到多个数据库或表中，可以方便地扩展系统容量和性能，避免了单个数据库或表的容量限制和性能瓶颈。</p>
+<p>2.提高性能：通过分散数据到多个数据库或表中，可以提高系统的并发处理能力，避免了单个数据库或表的访问瓶颈和单点故障风险。</p>
+<p>3.降低风险：通过分散数据到多个数据库或表中，可以降低系统的风险和数据丢失的可能性，提高了系统的可靠性和安全性。</p>
+<p>当然，将所有数据都放在一个数据库或表中也是可行的，但是当数据量逐渐增大时，单个数据库或表可能会面临性能和可靠性方面的问题。此时，分库和分表可以提供更好的解决方案，可以提高系统的可扩展性和性能，并提高系统的可靠性和安全性。</p>
 
 
+                
 
-       	</div>
-        
-
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-	
-    <section class="visible-md visible-lg">
-	
-        <div class="short-about">
-            
-            <a href="/top/about">
-               <img src="/img/avatar-felix3.JPG" alt="avatar" style="cursor: pointer" />
-            </a>
-            
-            
-                <p>Software Developer, Billiards lover</p>
-            
-           
-           <ul class="list-inline">
-               
-               <li>
-                   <a href="mailto:youremail@gmail.com">
-                      <span class="fa-stack fa-lg">
-                          <i class="fa fa-circle fa-stack-2x"></i>
-                          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                      </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="/your%20wechat%20qr%20code%20image">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               <li>
-                   <a target="_blank" href="https://github.com/yourgithub">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-                    <li>
-                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/stl_container/" data-toggle="tooltip" data-placement="top" title="stl_container">&larr;
+                            Previous Post</a>
                     </li>
-            
-            
-            
-               
-               
-               
-               
+                    
+                    
                 </ul>
+                
+
+                
+
+
+
             </div>
-    </section>
-	
-    
-    
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FEATURED TAGS</h5>
-        <div class="tags">
+
             
             
-               
-                    <a href="/tags/cpp_note" title="cpp_note">
-                        cpp_note
-                    </a>
-               
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
             
-               
-                    <a href="/tags/linux" title="linux">
-                        linux
-                    </a>
-               
+
             
-               
-                    <a href="/tags/mysql" title="mysql">
-                        mysql
-                    </a>
-               
-            
-               
-                    <a href="/tags/vim" title="vim">
-                        vim
-                    </a>
-               
-            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/cpp_note" title="cpp_note">
+                            cpp_note
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linux" title="linux">
+                            linux
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/mysql" title="mysql">
+                            mysql
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/vim" title="vim">
+                            vim
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="https://blog.leafee98.com">leafee98&#39;s blog</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
         </div>
-    </section>
-    
-
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FRIENDS</h5>
-        <ul class="list-inline">
-            
-            <li><a target="_blank" href="https://blog.leafee98.com">leafee98&#39;s blog</a></li>
-            
-        </ul>
-    </section>
-    
-    
-</div>
-
-	</div>
-</div>
-
+    </div>
+</article>
 
 
 
@@ -437,7 +392,7 @@
             
            
                    <li>
-                       <a href='/tags/vim/index.xml' rel="alternate" type="application/rss+xml" title="felix&#39;s blog" >
+                       <a href='' rel="alternate" type="application/rss+xml" title="felix&#39;s blog" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

@@ -6,7 +6,16 @@
     <description>Recent content in Posts on felix&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://felixie99.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://felixie99.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL数据库常见问题</title>
+      <link>https://felixie99.github.io/post/mysql/</link>
+      <pubDate>Sun, 09 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://felixie99.github.io/post/mysql/</guid>
+      <description>19.数据库为什么要进行分库和分表呢？都放在一个库或者一张表中不可以吗？ 数据库进行分库和分表的主要目的是为了解决数据库规模扩大和高并发访问的</description>
+    </item>
+    
     <item>
       <title>stl_container</title>
       <link>https://felixie99.github.io/post/stl_container/</link>
@@ -53,6 +62,15 @@ inline \(\LaTeX\)</description>
       
       <guid>https://felixie99.github.io/post/linux_demo/</guid>
       <description>demo </description>
+    </item>
+    
+    <item>
+      <title>bit operator</title>
+      <link>https://felixie99.github.io/post/cpp_bit_operator/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://felixie99.github.io/post/cpp_bit_operator/</guid>
+      <description>二进制位运算 不用加减乘除做加法 &amp;lsquo;无进位和&amp;rsquo;与&amp;rsquo;异或运算&amp;rsquo;规律相同, &amp;lsquo;进位&amp;rsq</description>
     </item>
     
     <item>

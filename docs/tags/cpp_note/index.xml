@@ -26,6 +26,15 @@
     </item>
     
     <item>
+      <title>bit operator</title>
+      <link>https://felixie99.github.io/post/cpp_bit_operator/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://felixie99.github.io/post/cpp_bit_operator/</guid>
+      <description>二进制位运算 不用加减乘除做加法 &amp;lsquo;无进位和&amp;rsquo;与&amp;rsquo;异或运算&amp;rsquo;规律相同, &amp;lsquo;进位&amp;rsq</description>
+    </item>
+    
+    <item>
       <title>const int* 与 int const* 的区别</title>
       <link>https://felixie99.github.io/post/cpp_const/</link>
       <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
