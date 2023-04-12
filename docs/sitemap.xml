@@ -3,18 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://felixie99.github.io/</loc>
-    <lastmod>2023-04-09T00:00:00+00:00</lastmod>
+    <lastmod>2023-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://felixie99.github.io/post/</loc>
+    <lastmod>2023-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://felixie99.github.io/tags/resource/</loc>
+    <lastmod>2023-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://felixie99.github.io/tags/</loc>
+    <lastmod>2023-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://felixie99.github.io/post/resource_integration/</loc>
+    <lastmod>2023-04-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://felixie99.github.io/tags/mysql/</loc>
     <lastmod>2023-04-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://felixie99.github.io/post/mysql/</loc>
-    <lastmod>2023-04-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://felixie99.github.io/post/</loc>
-    <lastmod>2023-04-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://felixie99.github.io/tags/</loc>
     <lastmod>2023-04-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://felixie99.github.io/tags/cpp_note/</loc>

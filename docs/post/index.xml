@@ -6,7 +6,16 @@
     <description>Recent content in Posts on felix&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://felixie99.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://felixie99.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>资源收集站</title>
+      <link>https://felixie99.github.io/post/resource_integration/</link>
+      <pubDate>Wed, 12 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://felixie99.github.io/post/resource_integration/</guid>
+      <description>PDF转换工具 Smallpdf PDF爱好者 迅速PDF PDF Candy PDF2GO</description>
+    </item>
+    
     <item>
       <title>MySQL数据库常见问题</title>
       <link>https://felixie99.github.io/post/mysql/</link>
