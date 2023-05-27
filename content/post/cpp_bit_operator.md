@@ -2,7 +2,7 @@
 title:       "bit operator"
 subtitle:    ""
 description: ""
-date:        2018-06-04
+date:        2022-06-04
 author:      ""
 image:       ""
 tags:        ["cpp_note"]
