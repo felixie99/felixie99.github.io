@@ -37,7 +37,7 @@ f(42,i)
 ```c++
 flip(f, j, 42); //通过filp1调用f不会改变j
 ```  
-因为<j,42>传入模版参数后 <T1,T2> 分别被推导为 <int, int>，即模板参数被实例化为
+因为\<j,42>传入模版参数后 \<T1,T2> 分别被推导为 \<int, int>，即模板参数被实例化为
 ```c++
 void flip(void(*fcn)(int, int&), int t1, int t2);
 ```
@@ -91,8 +91,8 @@ template <typename Type> intermediary(Type &&arg)
 **forward传递**
 上述函数中使用Type作为forward的显式模板实参数类型，它是从arg推断出来的  
 如果arg是一个模板类型参数的右值引用(Type &&)， Type将表示传递给arg的实参的所有类型信息。  
-如果arg是一个右值(如42），则Type是一个普通（非引用)类型(int),forward<Type>将返回Type &&(int&&)。   
-如果arg是一个左值(int), 则通过引用折叠, Type本身是一个左值引用类型<int &>，forward返回Type && (int& &&)， 再通过折叠，仍然返回左值引用类型int &。  
+如果arg是一个右值(如42），则Type是一个普通（非引用)类型(int),forward\<Type>将返回Type &&(int&&)。   
+如果arg是一个左值(int), 则通过引用折叠, Type本身是一个左值引用类型\<int &>，forward返回Type && (int& &&)， 再通过折叠，仍然返回左值引用类型int &。  
 则翻转函数可以写成
 ```c++
 template <typename F, typename T1, typename T2>

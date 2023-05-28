@@ -142,3 +142,5 @@ yw;将光标所在的单词复制到剪贴板
 [Vim语法](https://learnvim.irian.to/basics/vim_grammar)
 
 [学习说vim——动词、名词和修饰语！](https://yanpritzker.com/learn-to-speak-vim-verbs-nouns-and-modifiers-d7bfed1f6b2d)
+
+[快捷指令图](/img/vimLearn_en.png)
