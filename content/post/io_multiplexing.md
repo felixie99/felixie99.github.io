@@ -96,5 +96,5 @@ poll和select没有太大的本质区别，都是使用「线性结构」存储�
 
 
 ## 参考链接
-![I/O多路复用：select/poll/epoll](https://xiaolincoding.com/os/8_network_system/selete_poll_epoll.html#最基本的-socket-模型)
-![彻底搞懂IO多路复用](https://zhuanlan.zhihu.com/p/602256078)
+[I/O多路复用：select/poll/epoll](https://xiaolincoding.com/os/8_network_system/selete_poll_epoll.html#最基本的-socket-模型)
+[彻底搞懂IO多路复用](https://zhuanlan.zhihu.com/p/602256078)
