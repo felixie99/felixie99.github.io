@@ -55,3 +55,6 @@ public:
 
 ## 缺点
 某些情况下，造成内存浪费，因为对象未被使用的情况下就会被初始化，如果一个项目中的类多达上千个，在项目启动的时候便开始初始化可能并不是我们想要的。
+
+### 参考链接
+[单例模式的原理及实现](https://www.bilibili.com/video/BV1Gz4y1d7RJ/?spm_id_from=333.880.my_history.page.click&vd_source=6231c8e862cfb02f2c39776bd6c364a7)
