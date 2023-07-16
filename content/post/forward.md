@@ -11,7 +11,43 @@ categories:  ["Tech" ]
 
 # C++ forward关键字
 **forward的作用:当某函数需要将其一个或多个实参连同类型不变地转发给其他函数时，需要保持被转发实参的所有性质，包括实参类型是否是const的以及实参数是左值还是右值**  
+## forward实现
 
+```C++
+template <typename T>
+T&& forward(typename remove_reference<T>::type && x) noexcept{
+    return static_cast<decltype(x)&&>(x);
+}
+
+template <typename T>
+T&& forward(typename remove_reference<T>::type & x) noexcept{
+    return static_cast<decltype(x)&&>(x);
+}
+```
+
+特别说明：
+- decltype(x)是一个C++11引入的关键字，用于获取表达式的类型而不进行实际的求值。它的作用是返回表达式x的类型，包括cv限定符（const和volatile）和引用修饰符。
+
+具体来说，decltype(x)有以下几个特点：
+
+如果x是一个标识符（变量名、函数名等），decltype(x)将返回该标识符的类型。
+
+如果x是一个函数调用表达式，decltype(x)将返回该函数调用的返回类型。
+
+如果x是一个左值，decltype(x)将返回指向该左值的引用类型。
+
+如果x是一个右值，decltype(x)将返回该右值的类型，不带引用修饰符。
+
+- remove_reference
+remove_reference是一个C++类型转换辅助工具，位于 <type_traits> 头文件中。它用于从给定的类型中去除引用修饰符，并返回相应的非引用类型。
+
+remove_reference 主要用于模板编程和类型转换，特别是在处理模板参数时很有用。通过使用 remove_reference，可以将包括左值引用和右值引用的类型转换为对应的非引用类型，使代码更具通用性。
+
+```C++
+template <typename T> struct remove_ref       { typedef T type; };
+template <typename T> struct remove_ref<T&>   { typedef T type; };
+template <typename T> struct remove_ref<T&&>  { typedef T type; };
+```
 ### 引用参数
 编写一个函数如下
 ```c++
