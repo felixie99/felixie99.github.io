@@ -77,18 +77,10 @@ int main(){
 
 此时输出结果为：
 ![没有虚继承的情况下](/img/virtual_inherit1.jpg)
-可以看到，对象d的内存布局为：
-B的虚函数指针  
-B继承A的数据  
-B的数据  
-C的虚函数指针  
-C继承A的数据  
-C的数据
-D的数据  
+来分析一下他们的内存布局
 （注意内存对齐）
-![内存布局图](/img/virtual_inherit2.jpg)
-
-所以这样d对象中就会有两个A的副本，那么如果d调用m_a时，就会造成二义性，这就是「菱形继承」问题
+![内存布局图](/img/nonvirtural.jpg)
+可以发现，当D继承B,C时，d对象中就会有两个A的副本，那么如果d调用m_a时，就会造成二义性，这就是「菱形继承」问题
 
 那么怎么解决呢----「虚继承」
 
@@ -108,13 +100,13 @@ public:
         int m_aa;
 };
 
-class B :public A{
+class B :virtual public A{
 public:
         virtual void foo() { cout << "B" << endl; }
         int m_b;
 };
 
-class C :public A{
+class C :virtual public A{
 public:
         virtual void foo() { cout << "C" << endl; }
         int m_c;
@@ -163,4 +155,4 @@ int main(){
 同时也注意到对象b和对象c中原本a的数据，也变成了虚函数指针 + a的数据
 
 那么此时的内存布局是这样:
-![有虚继承的情况下](/img/virtual_inherit4.jpg)
+![有虚继承的情况下](/img/virtual.jpg)
