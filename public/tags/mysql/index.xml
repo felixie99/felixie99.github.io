@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mysql on felix&#39;s blog</title>
+    <link>https://felixie99.github.io/tags/mysql/</link>
+    <description>Recent content in mysql on felix&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 09 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://felixie99.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL数据库常见问题</title>
+      <link>https://felixie99.github.io/post/mysql/</link>
+      <pubDate>Sun, 09 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://felixie99.github.io/post/mysql/</guid>
+      <description>19.数据库为什么要进行分库和分表呢？都放在一个库或者一张表中不可以吗？ 数据库进行分库和分表的主要目的是为了解决数据库规模扩大和高并发访问的</description>
+    </item>
+    
+  </channel>
+</rss>

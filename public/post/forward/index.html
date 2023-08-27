@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="felix&#39;s blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://felixie99.github.io/img/home-bg-scenery.JPG">
+    <meta property="twitter:image" content="https://felixie99.github.io/img/home-bg-scenery.JPG" />
+    
+
+    
+    <meta name="title" content="C&#43;&#43; forward关键字" />
+    <meta property="og:title" content="C&#43;&#43; forward关键字" />
+    <meta property="twitter:title" content="C&#43;&#43; forward关键字" />
+    
+
+    
+    <meta name="description" content="felix，程序员, 台球爱好者 | 这里是 felix 的博客，与你一起发现更大的世界。">
+    <meta property="og:description" content="felix，程序员, 台球爱好者 | 这里是 felix 的博客，与你一起发现更大的世界。" />
+    <meta property="twitter:description" content="felix，程序员, 台球爱好者 | 这里是 felix 的博客，与你一起发现更大的世界。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="felix, felix, Felix, , felix的网络日志, felix的博客, Felix Blog, 博客, 个人网站, 互联网, Web, 云原生, PaaS, Istio, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>C&#43;&#43; forward关键字 | felix的博客 | felix Blog</title>
+
+    <link rel="canonical" href="/post/forward/">
+
+    
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+    
+
+</head>
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">felix&#39;s blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/archive/">ARCHIVE</a></li>
+                    
+                        <li><a href="/tags/">NOTES</a></li>
+                    
+                        <li><a href="/photos/">PHOTOS</a></li>
+                    
+                        <li><a href="/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bg-scenery.JPG')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/cpp" title="cpp">
+                            cpp
+                        </a>
+                        
+                    </div>
+                    <h1>C&#43;&#43; forward关键字</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                     &#34;&#34;
+                             
+                            on 
+                            Saturday, May 27, 2023
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h1 id="c-forward关键字">C++ forward关键字</h1>
+<p><strong>forward的作用:当某函数需要将其一个或多个实参连同类型不变地转发给其他函数时，需要保持被转发实参的所有性质，包括实参类型是否是const的以及实参数是左值还是右值</strong></p>
+<h3 id="引用参数">引用参数</h3>
+<p>编写一个函数如下</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#ff79c6">template</span> <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> F, <span style="color:#ff79c6">typename</span> T1, <span style="color:#ff79c6">typename</span> T2<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">void</span> filp1(F f, T1, T2)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    f(t2, t1);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这个函数一般情况下可以正常工作，但当我们希望用它调用一个接受引用参数的函数时就会出现问题：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">f</span>(<span style="color:#8be9fd">int</span> v1, <span style="color:#8be9fd">int</span><span style="color:#ff79c6">&amp;</span> v2)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> v1 <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#ff79c6">++</span>v2 <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>此时使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>f(<span style="color:#bd93f9">42</span>,i)
+</span></span></code></pre></div><p>能够正常改变i的值
+但当调用filp1时则无效</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>flip(f, j, <span style="color:#bd93f9">42</span>); <span style="color:#6272a4">//通过filp1调用f不会改变j
+</span></span></span></code></pre></div><p>因为&lt;j,42&gt;传入模版参数后 &lt;T1,T2&gt; 分别被推导为 &lt;int, int&gt;，即模板参数被实例化为</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">flip</span>(<span style="color:#8be9fd">void</span>(<span style="color:#ff79c6">*</span>fcn)(<span style="color:#8be9fd">int</span>, <span style="color:#8be9fd">int</span><span style="color:#ff79c6">&amp;</span>), <span style="color:#8be9fd">int</span> t1, <span style="color:#8be9fd">int</span> t2);
+</span></span></code></pre></div><p>故j的值被拷贝到t1中，f中的引用参数被绑定到t1，而非j，从而其改变不会影响j</p>
+<h3 id="定义能保持类型信息的函数参数">定义能保持类型信息的函数参数</h3>
+<p>重写函数，使其参数能够保持给定参数的“左值性”，同时也希望保持参数的const属性<br>
+<strong>通过将一个函数参数定义为一个指向模板类型参数的右值引用，我们可以保持其对应实参数的所有类型信息。</strong><br>
+而使用引用参数（无论是左值还是右值）使得我们可以保持const属性，因为在引用类型中的const是底层的<br>
+我们将函数参数定义为T1&amp;&amp; 和T2&amp;&amp;通过引用折叠就可以保持返转实参的左值/右值属性</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#ff79c6">template</span> <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> F, <span style="color:#ff79c6">typename</span> T1, <span style="color:#ff79c6">typename</span> T2<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">void</span> flip2(F t, T1 <span style="color:#ff79c6">&amp;&amp;</span>t1, T2 <span style="color:#ff79c6">&amp;&amp;</span>t2)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    f(t2, t1); 
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>此时如果调用flip2(f,j,42)，模版参数就会被实例化为</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> flip2(<span style="color:#8be9fd">void</span>(<span style="color:#ff79c6">*</span>fcn)(<span style="color:#8be9fd">int</span>, <span style="color:#8be9fd">int</span><span style="color:#ff79c6">&amp;</span>), <span style="color:#8be9fd">int</span><span style="color:#ff79c6">&amp;</span>, <span style="color:#8be9fd">int</span>)
+</span></span></code></pre></div><blockquote>
+<blockquote>
+<p>如果一个函数参数是指向模板类型参数的右值引用(T &amp;&amp;)， 它对应的实参的const属性和左值/右值属性将得到保持</p>
+</blockquote>
+</blockquote>
+<h3 id="右值引用">右值引用</h3>
+<p>flip2能够很好的解决左值引用的问题，但不能接受右值引用参数的函数</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">g</span>(<span style="color:#8be9fd">int</span> <span style="color:#ff79c6">&amp;&amp;</span>i,<span style="color:#8be9fd">int</span><span style="color:#ff79c6">&amp;</span> j)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    cout <span style="color:#ff79c6">&lt;&lt;</span> i <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#f1fa8c">&#34; &#34;</span> <span style="color:#ff79c6">&lt;&lt;</span> j <span style="color:#ff79c6">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>如果我们试图用flip2调用g， 则参数t2会被传递给g的右值引用参数</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>flip2(g, i, <span style="color:#bd93f9">42</span>); <span style="color:#6272a4">//错误：不能从一个左值实例化int&amp;&amp;
+</span></span></span></code></pre></div><p>因为这样调用时，模板参数实例化仍为</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> flip2(<span style="color:#8be9fd">void</span>(<span style="color:#ff79c6">*</span>fcn)(<span style="color:#8be9fd">int</span>, <span style="color:#8be9fd">int</span><span style="color:#ff79c6">&amp;</span>), <span style="color:#8be9fd">int</span><span style="color:#ff79c6">&amp;</span>, <span style="color:#8be9fd">int</span>)
+</span></span></code></pre></div><p><strong>调用std::forward保持类型信息</strong>
+我们可以使用一个名叫forward的新标准库设施来传递flip2的参数，它能保持原始参数实参的类型。<br>
+forward必须通过显式实参来调用，forward返回该显式实参类型的右值引用。即forward<!-- raw HTML omitted -->的返回类型是T&amp;&amp;。</p>
+<p>通常我们使用forward传递那些定义为模板类型参数的右值引用的函数参数，通过返回类型上的引用折叠，forward可以保持给定实参的左值/右值属性：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#ff79c6">template</span> <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> Type<span style="color:#ff79c6">&gt;</span> intermediary(Type <span style="color:#ff79c6">&amp;&amp;</span>arg)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    finalFcn(std<span style="color:#ff79c6">::</span>forward<span style="color:#ff79c6">&lt;</span>Type<span style="color:#ff79c6">&gt;</span>(arg));
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>forward传递</strong>
+上述函数中使用Type作为forward的显式模板实参数类型，它是从arg推断出来的<br>
+如果arg是一个模板类型参数的右值引用(Type &amp;&amp;)， Type将表示传递给arg的实参的所有类型信息。<br>
+如果arg是一个右值(如42），则Type是一个普通（非引用)类型(int),forward&lt;Type&gt;将返回Type &amp;&amp;(int&amp;&amp;)。<br>
+如果arg是一个左值(int), 则通过引用折叠, Type本身是一个左值引用类型&lt;int &amp;&gt;，forward返回Type &amp;&amp; (int&amp; &amp;&amp;)， 再通过折叠，仍然返回左值引用类型int &amp;。<br>
+则翻转函数可以写成</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#ff79c6">template</span> <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">typename</span> F, <span style="color:#ff79c6">typename</span> T1, <span style="color:#ff79c6">typename</span> T2<span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">void</span> flip(F f, T1 <span style="color:#ff79c6">&amp;&amp;</span>t1, T2 <span style="color:#ff79c6">&amp;&amp;</span>t2)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    f(std<span style="color:#ff79c6">::</span>forward<span style="color:#ff79c6">&lt;</span>T2<span style="color:#ff79c6">&gt;</span>(t2), std<span style="color:#ff79c6">::</span>forward<span style="color:#ff79c6">&lt;</span>T1<span style="color:#ff79c6">&gt;</span>(t1));
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/resource_integration/" data-toggle="tooltip" data-placement="top" title="资源收集站">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/move/" data-toggle="tooltip" data-placement="top" title="C&#43;&#43; move关键字">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/cpp" title="cpp">
+                            cpp
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cpp_note" title="cpp_note">
+                            cpp_note
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linux" title="linux">
+                            linux
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/mysql" title="mysql">
+                            mysql
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resource" title="resource">
+                            resource
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/vim" title="vim">
+                            vim
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B" title="网络编程">
+                            网络编程
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="https://blog.leafee98.com">leafee98&#39;s blog</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    <li>
+                        <a href="mailto:youremail@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    <li>
+                        <a target="_blank" href="/your%20wechat%20qr%20code%20image">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/yourgithub">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="felix&#39;s blog" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; felix&#39;s blog 2023
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

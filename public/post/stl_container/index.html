@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="felix&#39;s blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://felixie99.github.io/img/home-bg-scenery.JPG">
+    <meta property="twitter:image" content="https://felixie99.github.io/img/home-bg-scenery.JPG" />
+    
+
+    
+    <meta name="title" content="stl_container" />
+    <meta property="og:title" content="stl_container" />
+    <meta property="twitter:title" content="stl_container" />
+    
+
+    
+    <meta name="description" content="felix，程序员, 台球爱好者 | 这里是 felix 的博客，与你一起发现更大的世界。">
+    <meta property="og:description" content="felix，程序员, 台球爱好者 | 这里是 felix 的博客，与你一起发现更大的世界。" />
+    <meta property="twitter:description" content="felix，程序员, 台球爱好者 | 这里是 felix 的博客，与你一起发现更大的世界。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="felix, felix, Felix, , felix的网络日志, felix的博客, Felix Blog, 博客, 个人网站, 互联网, Web, 云原生, PaaS, Istio, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>stl_container | felix的博客 | felix Blog</title>
+
+    <link rel="canonical" href="/post/stl_container/">
+
+    
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+    
+
+</head>
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">felix&#39;s blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/archive/">ARCHIVE</a></li>
+                    
+                        <li><a href="/tags/">NOTES</a></li>
+                    
+                        <li><a href="/photos/">PHOTOS</a></li>
+                    
+                        <li><a href="/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bg-scenery.JPG')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/cpp_note" title="cpp_note">
+                            cpp_note
+                        </a>
+                        
+                    </div>
+                    <h1>stl_container</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                     &#34;&#34;
+                             
+                            on 
+                            Saturday, October 22, 2022
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h1 id="stl容器">STL容器</h1>
+<h2 id="顺序容器">顺序容器</h2>
+<h2 id="关联容器">关联容器</h2>
+<p>
+  <img src="/img/stl_container_1.png" alt="示意图">
+
+
+关联容器步支持顺序容器的位置相关的操作，例如push_front,push_back.</p>
+<p>关联容器也不支持构造函数或插入操作这些接受一个元素值和一个数量值的操作</p>
+<h3 id="标准的stl关联式容器">标准的STL关联式容器</h3>
+<h4 id="1使用map">1.使用map</h4>
+<p>map是key-value的集合，所有元素都是pair，有序。不允许重复的键值，multimap允许重复的键值</p>
+<p>应用场景：</p>
+<p>1.将名字映射到电话号码</p>
+<p>2.将单词与单词的个数关联</p>
+<h4 id="2使用set">2.使用set</h4>
+<p>set的key = value。有序，不允许重复的键值，multiset允许重复的键值。</p>
+<p>应用场景：</p>
+<p>当只是想知道一个值是否存在时，set是最有用的。</p>
+<blockquote>
+<p>set和map均为有序容器，缺省条件下，按照键值从小到大排序。</p>
+</blockquote>
+<h3 id="3multimapmultiset">3.multimap、multiset</h3>
+<p>容器multimap和multiset允许多个元素拥有相同的关键字</p>
+<h3 id="非标准的stl关联式容器">非标准的STL关联式容器</h3>
+<h2 id="stl容器的插入删除遍历和查找操作性能对比">STL容器的插入、删除、遍历和查找操作性能对比</h2>
+<p>没有讨论stack、queue和priority_queue，是因为它们底层是使用deque或者vector实现的。</p>
+<h3 id="插入">插入</h3>
+<p><a href="https://blog.csdn.net/breaksoftware/article/details/82947838">转载自breaksoftware的csdn博客</a></p>
+<h4 id="头部插入">头部插入</h4>
+<p>结论：</p>
+<ul>
+<li>
+<p>deque的性能是最好的，其次是unordered_set（神一般的存在）。</p>
+</li>
+<li>
+<p>当元素个数比较多时，vector的性能是最差的。</p>
+</li>
+<li>
+<p>forward_list要优于list。</p>
+</li>
+<li>
+<p>除了unordered_set，其他关联容器性能都比非关联容器（除了vector）要差。</p>
+</li>
+<li>
+<p>当元素个数比较多（大概大于2500）时，set的性能要高于map。multi系列的都要优于非multi系列（除了unordered_set）。比如multimap优于map；unordered_multimap优于unordered_map。</p>
+</li>
+<li>
+<p>当元素个数比较少（大概小于256）时，有序关联容器的性能比无序（unordered）关联容器要高（除了unordered_set）。</p>
+</li>
+</ul>
+<h3 id="中间插入">中间插入</h3>
+<p>结论：</p>
+<ul>
+<li>
+<p>当元素个数小于256时，vector的效率是最高的。但是随着元素个数增多，vector将变成性能最差的容器。</p>
+</li>
+<li>
+<p>forward_list、list和deque在不同元素个数时表现的都很优异。</p>
+</li>
+<li>
+<p>set容器是所有关联容器中性能最好的。</p>
+</li>
+</ul>
+<h4 id="尾部插入">尾部插入</h4>
+<p>结论：</p>
+<ul>
+<li>
+<p>在尾部插入时，vector的性能是最好的。其他两个场景下，vector的性能都是最差的。但是在中间插入场景，容器元素个数小于256时，vector还是最优的。但是之后衰退严重。</p>
+</li>
+<li>
+<p>deque在头部和尾部插入元素场景下性能优异。</p>
+</li>
+<li>
+<p>list和forward_list在中间插入元素场景下性能优异。</p>
+</li>
+<li>
+<p>在关联容器中，只有在头部插入场景下的unordered_set性能极其优异。</p>
+</li>
+<li>
+<p>当元素个数较多时，set的性能要优于map。</p>
+</li>
+</ul>
+<h3 id="删除">删除</h3>
+<p><a href="https://blog.csdn.net/breaksoftware/article/details/82948224">转载自breaksoftware的csdn博客</a></p>
+<h4 id="头部删除">头部删除</h4>
+<p>结论：</p>
+<ul>
+<li>vector的性能始终最差</li>
+<li>除了vector，非关联容器性能都优于关联容器</li>
+<li>除了vector，set和map的性能最差</li>
+</ul>
+<h4 id="中间删除">中间删除</h4>
+<p>结论：</p>
+<ul>
+<li>vector效率持续糟糕</li>
+<li>list和forward_list性能最优</li>
+<li>deque和其他关联容器效率相似，比较低效</li>
+</ul>
+<h4 id="尾部删除">尾部删除</h4>
+<p>结论：</p>
+<ul>
+<li>vector表现最优，其次是deque和list</li>
+<li>map的性能要优于set</li>
+<li>set在元素个数超过3000左右后，效率仅优于forward_list</li>
+</ul>
+<h4 id="最终结论">最终结论</h4>
+<ul>
+<li>
+<p>vector只有在尾部删除时性能最优。在头部和中间删除时，性能始终是最差的。</p>
+</li>
+<li>
+<p>forward_list在头部和中间删除时，性能是非常好的。但是在尾部删除时，性能极其差。</p>
+</li>
+<li>
+<p>中间删除时，性能最高的是list和forward_list。deque在这个场景下表现很平庸，和其他关联容器差不多。</p>
+</li>
+<li>
+<p>头部和尾部删除时，deque性能非常优异。</p>
+</li>
+</ul>
+<h3 id="遍历">遍历</h3>
+<h4 id="从前往后">从前往后</h4>
+<p>结论：</p>
+<ul>
+<li>
+<p>元素个数大于8000左右时，vector效率是最好的。</p>
+</li>
+<li>
+<p>元素个数小于8000左右时，list效率是最好的。</p>
+</li>
+<li>
+<p>元素个数大于200左右时，unordered_multiset效率是最差的。</p>
+</li>
+<li>
+<p>元素个数小于200左右时，deque效率是最差的。主要原因是开始时一次高耗时操作，但是之后每次操作耗时均不多（线的变化率）。</p>
+</li>
+</ul>
+<h4 id="从后往前">从后往前</h4>
+<p>结论：</p>
+<ul>
+<li>vector在各个方向的遍历效率均比较优秀。</li>
+<li>list在从前往后遍历时比deque优秀。</li>
+<li>deque在从后向前遍历时比list优秀。</li>
+<li>关联容器的遍历效率没有非关联容器高。</li>
+</ul>
+<h3 id="查找">查找</h3>
+<p>因为非关联容器的查找只能通过遍历，其效率和关联容器的查找没法比。所以我们只比较关联容器<br>
+结论：</p>
+<ul>
+<li>unordered系列容器比ordered系列容器效率高</li>
+<li>ordered系列容器中，map系列比set系列对应的容器效率高。比如map比set优，multimap比multiset优</li>
+<li>set效率最差</li>
+<li>unordered_multiset最优。</li>
+</ul>
+
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/cpp_compare/" data-toggle="tooltip" data-placement="top" title="cpp_compare">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/mysql/" data-toggle="tooltip" data-placement="top" title="MySQL数据库常见问题">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/cpp" title="cpp">
+                            cpp
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cpp_note" title="cpp_note">
+                            cpp_note
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linux" title="linux">
+                            linux
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/mysql" title="mysql">
+                            mysql
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resource" title="resource">
+                            resource
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/vim" title="vim">
+                            vim
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B" title="网络编程">
+                            网络编程
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="https://blog.leafee98.com">leafee98&#39;s blog</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    <li>
+                        <a href="mailto:youremail@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    <li>
+                        <a target="_blank" href="/your%20wechat%20qr%20code%20image">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/yourgithub">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="felix&#39;s blog" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; felix&#39;s blog 2023
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

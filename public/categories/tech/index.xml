@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tech on felix&#39;s blog</title>
+    <link>https://felixie99.github.io/categories/tech/</link>
+    <description>Recent content in Tech on felix&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 29 May 2023 22:06:14 +0800</lastBuildDate><atom:link href="https://felixie99.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IO多路复用</title>
+      <link>https://felixie99.github.io/post/io_multiplexing/</link>
+      <pubDate>Mon, 29 May 2023 22:06:14 +0800</pubDate>
+      
+      <guid>https://felixie99.github.io/post/io_multiplexing/</guid>
+      <description>我们以「如何服务更多的用户」这一问题引入IO多路复用 如果服务器的内存只有 2 GB，网卡是千兆的，能支持并发 1 万请求吗？ 并发 1 万请求，也就是经典</description>
+    </item>
+    
+    <item>
+      <title>阻塞/非阻塞IO VS 同步/异步IO</title>
+      <link>https://felixie99.github.io/post/io/</link>
+      <pubDate>Mon, 29 May 2023 21:33:46 +0800</pubDate>
+      
+      <guid>https://felixie99.github.io/post/io/</guid>
+      <description>由于老是把它两搞混，所以就写一下笔记吧 针对网络IO的操作，可以分为两个阶段，准备阶段和操作阶段。 准备阶段判断是否能够操作（即等待数据是否可用</description>
+    </item>
+    
+    <item>
+      <title>代理服务器</title>
+      <link>https://felixie99.github.io/post/proxy/</link>
+      <pubDate>Mon, 29 May 2023 14:31:23 +0800</pubDate>
+      
+      <guid>https://felixie99.github.io/post/proxy/</guid>
+      <description>SSH命令的三种代理功能 (-L/-R/-D) 搬运自知乎答主 ssh命令的三种代理功能: 正向代理(-L)：相当于iptable的port forwarding 反向代理(-R)：相当于</description>
+    </item>
+    
+    <item>
+      <title>虚函数</title>
+      <link>https://felixie99.github.io/post/virtual_func/</link>
+      <pubDate>Sun, 28 May 2023 20:21:25 +0800</pubDate>
+      
+      <guid>https://felixie99.github.io/post/virtual_func/</guid>
+      <description>虚函数 c++作为面向对象的语言，主要有三大特性：继承、封装、多态。而多态的实现离不开虚函数的定义，虚函数的实现离不开虚函数表 简而言之：用父类</description>
+    </item>
+    
+    <item>
+      <title>右值引用</title>
+      <link>https://felixie99.github.io/post/rvalue_reference/</link>
+      <pubDate>Sat, 27 May 2023 21:28:46 +0800</pubDate>
+      
+      <guid>https://felixie99.github.io/post/rvalue_reference/</guid>
+      <description>右值引用 为了支持移动操作，新标准引入了新的引用类型&amp;mdash;&amp;mdash;右值引用(rvalue reference) 我们通过&amp;amp;&amp;amp;而不是&amp;a</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; move关键字</title>
+      <link>https://felixie99.github.io/post/move/</link>
+      <pubDate>Sat, 27 May 2023 20:30:39 +0800</pubDate>
+      
+      <guid>https://felixie99.github.io/post/move/</guid>
+      <description>C++ move关键字 不能将一个右值引用直接绑定到一个左值上，但我们可以通过调用move新标准库函数来获取绑定到左值上的右值引用 使用move函数可</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; forward关键字</title>
+      <link>https://felixie99.github.io/post/forward/</link>
+      <pubDate>Sat, 27 May 2023 16:46:33 +0800</pubDate>
+      
+      <guid>https://felixie99.github.io/post/forward/</guid>
+      <description>C++ forward关键字 forward的作用:当某函数需要将其一个或多个实参连同类型不变地转发给其他函数时，需要保持被转发实参的所有性质，包括</description>
+    </item>
+    
+  </channel>
+</rss>

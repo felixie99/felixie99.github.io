@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="felix&#39;s blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://felixie99.github.io/img/home-bg-scenery.JPG">
+    <meta property="twitter:image" content="https://felixie99.github.io/img/home-bg-scenery.JPG" />
+    
+
+    
+    <meta name="title" content="IO多路复用" />
+    <meta property="og:title" content="IO多路复用" />
+    <meta property="twitter:title" content="IO多路复用" />
+    
+
+    
+    <meta name="description" content="felix，程序员, 台球爱好者 | 这里是 felix 的博客，与你一起发现更大的世界。">
+    <meta property="og:description" content="felix，程序员, 台球爱好者 | 这里是 felix 的博客，与你一起发现更大的世界。" />
+    <meta property="twitter:description" content="felix，程序员, 台球爱好者 | 这里是 felix 的博客，与你一起发现更大的世界。" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="felix, felix, Felix, , felix的网络日志, felix的博客, Felix Blog, 博客, 个人网站, 互联网, Web, 云原生, PaaS, Istio, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>IO多路复用 | felix的博客 | felix Blog</title>
+
+    <link rel="canonical" href="/post/io_multiplexing/">
+
+    
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+    
+
+</head>
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">felix&#39;s blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/archive/">ARCHIVE</a></li>
+                    
+                        <li><a href="/tags/">NOTES</a></li>
+                    
+                        <li><a href="/photos/">PHOTOS</a></li>
+                    
+                        <li><a href="/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bg-scenery.JPG')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B" title="网络编程">
+                            网络编程
+                        </a>
+                        
+                    </div>
+                    <h1>IO多路复用</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                     &#34;&#34;
+                             
+                            on 
+                            Monday, May 29, 2023
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>我们以「如何服务更多的用户」这一问题引入IO多路复用</p>
+<p>如果服务器的内存只有 2 GB，网卡是千兆的，能支持并发 1 万请求吗？</p>
+<p>并发 1 万请求，也就是经典的 C10K 问题 ，C 是 Client 单词首字母缩写，C10K 就是单机同时处理 1 万个请求的问题。</p>
+<p>从硬件资源角度看，对于 2GB 内存千兆网卡的服务器，如果每个请求处理占用不到 200KB 的内存和 100Kbit 的网络带宽就可以满足并发 1 万个请求。</p>
+<p>不过，要想真正实现 C10K 的服务器，要考虑的地方在于服务器的网络 I/O 模型，效率低的模型，会加重系统开销，从而会离 C10K 的目标越来越远。</p>
+<h2 id="阻塞等待bio模型">阻塞等待(BIO模型)</h2>
+<hr>
+<h3 id="单任务">单任务</h3>
+<p>在网络环境中客户端和服务端使用Socket进行通信，它基本上只能一对一通信，因为使用的是「同步阻塞」的方式，当服务器在还没处理完一个客户端的网络IO时， 或者读写操作发送阻塞时，其他客户端时无法与服务器连接的。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> lfd <span style="color:#ff79c6">=</span> socket(...);
+</span></span><span style="display:flex;"><span>bind(lfd, ...);
+</span></span><span style="display:flex;"><span>listen(lfd, ...);
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> cfd <span style="color:#ff79c6">=</span> accpet(lfd, ...); <span style="color:#6272a4">//阻塞
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>read(cfd,...); <span style="color:#ff79c6">/</span>recv(cfd,...); <span style="color:#6272a4">//阻塞
+</span></span></span></code></pre></div><p>即遇到read/write/accept时，阻塞等待，直到有数据或连接时才继续执行。</p>
+<ul>
+<li>好处：不占用CPU宝贵的时间片</li>
+<li>缺点：同一时刻只能处理一个操作，效率低</li>
+<li>克服缺点： 多线程或多进程解决，一个线程/进程对应一个任务
+
+  <img src="/img/socket.png" alt="socket调用过程">
+
+</li>
+</ul>
+<h3 id="多任务">多任务</h3>
+<p><strong>多进程/线程模型</strong>
+基于最原始的阻塞网络IO，如果服务器要支持多个客户端，其中比较传统的方式即使用多进程模型，即为每个客户端分配一个进程/线程来处理请求。</p>
+<ul>
+<li>优点：能够同时处理多个任务，一个线程/进程对应一个任务</li>
+<li>缺点：
+<ul>
+<li>线程或进程会消耗资源</li>
+<li>线程或进程调度会消耗CPU资源</li>
+</ul>
+</li>
+<li>根本问题：阻塞</li>
+</ul>
+<h2 id="非阻塞忙轮询nio模型">非阻塞，忙轮询（NIO模型）</h2>
+<hr>
+<p>线程可以不需要阻塞在某个函数上，可以继续往下执行，但需要不断轮询资源是否到达</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> lfd <span style="color:#ff79c6">=</span> socket(...);
+</span></span><span style="display:flex;"><span>bind(lfd, ...);
+</span></span><span style="display:flex;"><span>listen(lfd, ...);
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> cfd <span style="color:#ff79c6">=</span> accpet(lfd, ...); <span style="color:#6272a4">//非阻塞
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>read(cfd,...); <span style="color:#ff79c6">/</span>recv(cfd,...); <span style="color:#6272a4">//非阻塞
+</span></span></span></code></pre></div><p>此时accpet是非阻塞的，当没有连接进来时，可以进行下面的操作(不能进行read,recv; 但如果有待处理的连接，则可以处理待处理连接的read和recv，类似于多路复用)。</p>
+<ul>
+<li>优点：提高了程序的执行效率</li>
+<li>缺点：需要占用更多的CPU和系统资源，每循环都需要 O(n) 系统调用（用来查找哪个任务可执行）</li>
+<li>克服缺点：使用IO多路转接技术select/poll/epoll</li>
+</ul>
+<h2 id="io多路复用">IO多路复用</h2>
+<p>既然为每个请求分配一个进程/线程不合适，那么有没有可能只用一个进程来维护多个socket？ 那就是使用「IO多路复用」
+
+  <img src="/img/IOmulti.jpg" alt="IO多路复用">
+
+</p>
+<p>一个进程虽然任一时刻只能处理一个请求，但是处理每个请求的事件时，耗时在1毫秒内，这样1秒内就能处理上千个请求，把时间拉长来看，多个请求复用一个进程，这就是多路复用。这种思想很类似一个CPU并发多个进程，所以也叫做时分多路复用。</p>
+<p>select/poll/epoll 内核提供给用户态多路复用调用， <strong>进程可以通过一个系统调用函数从内核从获取多个事件。</strong></p>
+<p>select/poll/epoll是如何获取网络事件的？ 在获取事件时，先把所有连接（文件描述符）传给内核，再由内核返回产生了事件的连接，然后在用户态中再处理这些连接对应的请求即可。</p>
+<h3 id="selectpoll">select/poll</h3>
+<hr>
+<p>select实现多路复用的方式是，将已连接的socket都放在一个<strong>文件描述符集合</strong>，然后调用select将文件描述符集合<strong>拷贝</strong>到内核里，让内核来检查是否有网络事件产生，检查的方式很粗暴，就是通过<strong>遍历</strong>文件描述符集合的方式，当检查到有事件产生后，将此socket标记为可读可写，接着再把整个文件描述符集合<strong>拷贝</strong>回用户态里，然后用户态还要再通过<strong>遍历</strong>的方式找到可读或可写的socket，然后再对其处理。
+
+  <img src="/img/select.jpg" alt="select">
+
+</p>
+<p>select的缺点显而易见：</p>
+<ul>
+<li>需要2次「遍历」文件描述符集合，一次在内核态，一次在用户态；2次「拷贝」文件描述符集合。在文件描述符很多时，这个开销很大</li>
+<li>select支持的文件描述符数量太小，默认是1024</li>
+<li>文件描述符集合不能重用，因为每次会把变动的结果拷贝到用户态，而下次再需要监听时需要重置。</li>
+</ul>
+<p>poll不再使用固定长度的bitsMap，而是使用动态数组、链表形式来组织，突破了select的文件描述符个数限制，但仍然会受到系统文件描述符限制</p>
+<p>poll和select没有太大的本质区别，都是使用「线性结构」存储进程关注的socket集合，因此都要遍历文件描述符集合来找到可读或可写的socket，时间复杂度为O(N)，而且也需要在用户态与内核态之间拷贝文件描述符集合，这种方式随着并发数上来，性能的损耗会呈指数级增长。</p>
+<h3 id="epoll">epoll</h3>
+<hr>
+<p>这里先偷个懒直接看下面的链接吧</p>
+<h2 id="参考链接">参考链接</h2>
+<p>
+  <img src="https://xiaolincoding.com/os/8_network_system/selete_poll_epoll.html#%e6%9c%80%e5%9f%ba%e6%9c%ac%e7%9a%84-socket-%e6%a8%a1%e5%9e%8b" alt="I/O多路复用：select/poll/epoll">
+
+
+
+  <img src="https://zhuanlan.zhihu.com/p/602256078" alt="彻底搞懂IO多路复用">
+
+</p>
+
+
+                
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/io/" data-toggle="tooltip" data-placement="top" title="阻塞/非阻塞IO VS 同步/异步IO">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+                
+
+                
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/cpp" title="cpp">
+                            cpp
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cpp_note" title="cpp_note">
+                            cpp_note
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linux" title="linux">
+                            linux
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/mysql" title="mysql">
+                            mysql
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resource" title="resource">
+                            resource
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/vim" title="vim">
+                            vim
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B" title="网络编程">
+                            网络编程
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="https://blog.leafee98.com">leafee98&#39;s blog</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    <li>
+                        <a href="mailto:youremail@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    <li>
+                        <a target="_blank" href="/your%20wechat%20qr%20code%20image">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/yourgithub">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="felix&#39;s blog" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; felix&#39;s blog 2023
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>
